@@ -1,0 +1,21 @@
+{% extends './../main-layout.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="body">
+            <button class="btn-card" onclick="window.open('../assets/download/react.pdf')">
+                <div class="card">
+                    <img src="../assets/image/pdf.png">
+                    <label>Transaction Dashboard Sample.pdf</label>
+                </div>
+            </button><br><br>
+            <label class="text">Sample of the available dashboards</label><br><br>
+            <button  class="btn-card" onclick="window.open('../assets/download/react.pdf')">
+                <div class="card">
+                    <img src="../assets/image/pdf.png">
+                    <label>Transaction Dashboard v1.1.pdf</label>
+                </div>
+            </button><br><br>
+            <label class="text">PBI Dashboards Details</label>
+        </div>
+{% endblock %}

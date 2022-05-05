@@ -1,0 +1,15 @@
+{% extends './../main-layout.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="imgCard">
+            <div>
+                <img class="PLC_topimg" src="{% static 'assets/image/PCI_Process1.png' %}" >
+            </div>
+            <div class="PLC_row">
+                <img class="PLC_leftimg" src="{% static 'assets/image/PCI_Process2.png' %}" >
+                <img class="PLC_middleimg" src="{% static 'assets/image/PCI_Process3.png' %}" >
+                <img class="PLC_rightimg" src="{% static 'assets/image/PCI_Process4.png' %}" >
+            </div>
+        </div>
+{% endblock %}

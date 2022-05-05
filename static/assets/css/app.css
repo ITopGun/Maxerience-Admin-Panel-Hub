@@ -1,0 +1,419 @@
+/************************** Main NavBar & Footer Start **************************/
+body {
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+}
+.tata .tata-title{
+    color: #FFF;
+}
+.tata.log .tata-title{
+    color: #32393f;
+}
+.main-wrapper{
+    min-height: 700px;
+}
+.min-height-700{
+    min-height: 700px;
+}
+a {
+    text-decoration: none;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+a:hover {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#logo h2{
+    font-family: 'Tangerine', serif;
+    font-size: 50px;
+    color: #ff8b23;
+    line-height: 60px;
+    font-weight: 800;
+}
+@media(max-width: 550px) {
+    #logo h2{
+        font-size: 40px;
+    }
+}
+@media(max-width: 450px) {
+    #logo h2{
+        font-size: 30px;
+    }
+    .main-page #logo h2{
+        margin-right: 80px;
+    }
+}
+@media(max-width: 370px) {
+    #logo h2{
+        line-height: 30px;
+    }
+}
+#logo h2>span{
+	font-size: 30px;
+	font-style: italic;
+}
+.header_area{
+    position: fixed;
+    z-index: 800;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #FFF;
+}
+.sub_header{
+    transition: height 1s;
+}
+.header_area.show .sub_header{
+    height: 0;
+    opacity: 0;
+    padding: 0;
+}
+.header_area.show .main_menu{
+    background: #FFF;
+    box-shadow: 0px 0px 10px 0px #999;
+}
+.sub_header {
+    padding: 10px 0 0;
+}
+.sub_header .sub_header_social_icon a {
+    font-size: 14px;
+    color: #555;
+    margin-left: 60px;
+    display: inline-block;
+}
+.sub_header .sub_header_social_icon a i {
+    margin-right: 12px;
+    color: #ff8b23;
+}
+.sub_header .sub_header_social_icon .register_icon {
+    border: 1px solid #e5e9ed;
+    padding: 9px 26px 9px 60px;
+    border-radius: 50px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.sub_header .sub_header_social_icon .register_icon i {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 38px;
+    border: 1px solid #e5e9ed;
+    border-radius: 50%;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    -webkit-transition: 2s;
+    transition: 2s;
+}
+.sub_header .sub_header_social_icon .register_icon:hover {
+    padding: 9px 60px 9px 26px;
+    background-color: #ff8b23;
+    color: #fff;
+}
+.sub_header .sub_header_social_icon .register_icon:hover i {
+    left: auto;
+    right: -14px;
+    top: -1px;
+    color: #fff;
+}
+#navbarSupportedContent{
+    justify-content: space-between;
+}
+.main_menu {
+    border-top: 1px solid #eee;
+    transition: .3s;
+}
+.main_menu .navbar-light .navbar-nav .nav-link {
+    color: #2a2a2a;
+    font-weight: 300;
+    font-family: roboto,sans-serif;
+}
+.main_menu ul li,
+.sub_header ul li {
+    display: inline-block;
+    font-size: 14px;
+    padding-right: 22px;
+}
+.main_menu ul li :hover,
+.sub_header ul li :hover {
+    color: #ff8b23!important;
+}
+.main_menu .header_social_icon ul li a,
+.sub_header .header_social_icon ul li a {
+    color: #c3c6c9;
+}
+.main_menu .header_social_icon ul li,
+.sub_header .header_social_icon ul li {
+    padding-right: 13px;
+}
+.main-wrapper{
+    margin-top: 156px;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: #ff8b23!important;
+    border-bottom: solid 1px #ff8b23;
+}
+.footer{
+    padding: 20px 0 30px;
+    background-color: #333;
+    color: #FFF;
+}
+.footer a{
+    color: #FFF;
+    padding: 10px 20px;
+}
+.footer a:hover{
+    color: #eee;
+}
+.footer p{
+    font-size: 30px;
+    color: #FFF;
+    font-style: italic;
+    font-weight: 500;
+    font-family: monospace;
+    text-transform: uppercase;
+    margin-left: 15px;
+    font-family:  'Tangerine', serif;
+}
+.footer p>span{
+    font-size: 30px;
+}
+.footer hr{
+    background: #FFF;
+}
+.footer-links{
+    display: flex;
+    flex-wrap: wrap;
+}
+@media (max-width: 991px){
+.sub_header .header_social_icon {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+.footer .col-lg-2{
+    text-align: center;
+}
+}
+@media (max-width: 768px){
+.sub_header .sub_header_social_icon a{
+    margin-left:0;
+}
+.sub_header .sub_header_social_icon a+a{
+    margin-left: 20px;
+}
+}
+/******************************* Main NavBar & Footer End ***************************/
+
+/************************************** Card CSS ************************************/
+
+.fas.fa-trash{
+    color: #fd3550;
+}
+
+@media (min-width: 992px){
+    .recipe-grid .card:hover {
+        transform: translateY(-0.25rem);
+        -webkit-box-shadow: 0 0.5rem 1rem 0 rgb(0 0 0 / 30%);
+        box-shadow: 0 0.5rem 1rem 0 rgb(0 0 0 / 30%);
+    }
+}
+
+.recipe-grid .card {
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+.btn i {
+    vertical-align: middle;
+    font-size: 1.3rem;
+    margin-top: -1em;
+    margin-bottom: -1em;
+    margin-right: 5px;
+}
+
+.product-show {
+    font-size: 18px;
+    left: 15px;
+}
+
+.btn-block{
+    display: block !important;
+    width: 100%;
+}
+
+.detail-page img{
+    display: block;
+    width: 100%;
+}
+
+.detail-page h2{
+    margin-bottom: 30px;
+}
+
+.detail-page p{
+    font-size: 16px;
+    color: #444;
+}
+
+.detail-page p strong{
+    color: #32393f;
+}
+
+.detail-page .Ingredients{
+    margin-bottom: 30px;
+}
+
+.detail-page .Ingredients h3{
+    margin-bottom: 20px;
+}
+
+.detail-page .Ingredients p{
+    margin-bottom: 5px;
+}
+
+.detail-page .Method{
+    margin-top: 20px;
+}
+
+@media(min-width: 768px){
+    .bg-md-gray{
+        background-color: #F3F3F3;
+    }
+}
+
+#detail-sticky{
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+#detail-sticky div{
+    margin-bottom: 20px;
+}
+
+#detail-sticky p{
+    margin-bottom: 10px;
+}
+
+@media(max-width: 768px){
+    #detail-sticky div p{
+        font-size: calc(1.3rem + .6vw);
+        color: #32393f;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    #detail-sticky div p strong{
+        font-size: 16px;
+        color: #444;
+        font-weight: 400;
+    }
+}
+
+@media(min-width: 768px){
+    #detail-sticky.stick {
+        position: fixed;
+        top: 54px;
+        right: calc(50% - 360px);
+        width: 222px;
+    }
+
+    #detail-sticky{
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+}
+
+@media(min-width: 992px){
+    #detail-sticky.stick {
+        position: fixed;
+        top: 54px;
+        right: calc(50% - 480px);
+        width: 308px;
+    }
+}
+
+@media(min-width: 1200px){
+    #detail-sticky.stick {
+        position: fixed;
+        top: 54px;
+        right: calc(50% - 570px);
+        width: 368px;
+    }
+}
+
+@media(min-width: 1400px){
+    #detail-sticky.stick {
+        position: fixed;
+        top: 54px;
+        right: calc(50% - 660px);
+        width: 428px;
+    }
+}
+
+
+/******************* Sign In **************************/
+.btn-facebook {
+    box-shadow: 0 2px 2px 0 rgba(59, 89, 152, .14), 0 3px 1px -2px rgba(59, 89, 152, .2), 0 1px 5px 0 rgba(59, 89, 152, .12);
+    background-color: #3b5998;
+    border-color: #3b5998;
+    color: #fff
+}
+
+.btn-facebook:hover {
+    color: #fff
+}
+
+.btn-white {
+    background-color: #fff;
+    border-color: #e7eaf3
+}
+
+
+
+.bg-login {
+    background-image: url(../images/login-images/bg-login-img.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed
+}
+
+.bg-forgot {
+    background-image: url(../images/login-images/bg-forgot-password.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed
+}
+
+.bg-lock-screen {
+    background-image: url(../images/login-images/bg-lock-screen.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed
+}
+
+.login-separater span {
+    position: relative;
+    top: 26px;
+    margin-top: -10px;
+    background: #fff;
+    padding: 5px;
+    font-size: 12px;
+    color: #cbcbcb;
+    z-index: 1
+}
+
+a .card-title:hover{
+    text-decoration: underline;
+    color: #3c39f5;
+}

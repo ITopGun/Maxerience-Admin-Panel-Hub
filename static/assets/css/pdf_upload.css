@@ -1,0 +1,85 @@
+#pdf-upload-btn{
+    display: block;
+    margin: 20px 40px;
+}
+.upload-wrap{
+    margin: 20px 40px;
+}
+.upload-wrap>*{
+    display: block;
+    margin: 10px 0;
+}
+.upload-wrap>textarea{
+    min-width: 500px;
+    padding: 10px
+}
+#pdf-preview-wrap{
+    display: none;
+}
+#pdf-preview-wrap>img{
+    max-width: 60px;
+}
+#pdf-input-wrap{
+    position: relative;
+    min-height: 150px;
+    max-width: 500px;
+    border: dotted 2px #999;
+    padding: 10px;
+    border-radius: 5px;
+}
+#pdf-input{
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+
+}
+.pdf-card-wrap{
+    margin: 20px 0;
+    margin-left: 40px;
+}
+.pdf-card-wrap a{
+    text-decoration: none;
+}
+.pdf-card-wrap p{
+    margin-top: 10px;
+}
+.pdf-card-wrap label{
+    margin-left: 20px;
+}
+#import-pdf-wrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#import-pdf-wrap>img{
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#import-pdf-wrap>p{
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .5;
+    display: inline-block;
+}
+#pdf-preview-name{
+    margin-top: 20px;
+}
+#pdf-description{
+    border-radius: 5px;
+    border-color: #999;
+}
+#pdf-description:focus{
+    border-color: #666;
+    outline: none;
+}

@@ -1,0 +1,69 @@
+{% extends './../main-layout.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="MC_imgCard">
+            <div class="MC_row">
+                <img src="{% static 'assets/image/MC_Process.png' %}" >
+            </div>
+            <div class="MC_row">
+                <div class="MC_detailTable">
+                    <table class="table table-bordered text-center">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Estimated Time</th>
+                          </tr>
+                        </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Step 1</td>
+                                    <td>Bottler</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>Step 2</td>
+                                    <td>Bottler</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>Step 3</td>
+                                    <td>Maxerience</td>
+                                    <td>0,2 days / product</td>
+                                </tr>
+                                <tr>
+                                    <td>Step 4</td>
+                                    <td>Maxerience</td>
+                                    <td>0,2 days / product</td>
+                                </tr>
+                                <tr>
+                                    <td>Step 5</td>
+                                    <td>Maxerience</td>
+                                    <td>* Depends on the model size (SKU quantities)</td>
+                                </tr>
+                                <tr>
+                                    <td>Step 6</td>
+                                    <td>Maxerience</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>Step 6.1</td>
+                                    <td>Model upload to the GPU</td>
+                                    <td>** 30 min</td>
+                                </tr>
+                                <tr>
+                                    <td>Step 6.2</td>
+                                    <td>GPU configuration</td>
+                                    <td>** 30 min</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                <div class="detailLabel">
+                    <label>* Each pproduct must be trained in combination with the additional SKUs available in the model</label>
+                    <label>** Task is performed during night shift, only, with a planned outage of about 5 minutes per cooler</label>
+                </div>
+            </div>
+        </div>   
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends './../main-layout.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="body">
+            <button class="btn-card" onclick="window.open('../assets/download/react.pdf')">
+                <div class="card">
+                    <img src="../assets/image/pdf.png">
+                    <label>Cooler Installation Guide V1.7.pdf</label>
+                </div>
+            </button><br><br>
+            <label class="text">Generic Document - Retrofitting only - Not applicable for NAOU & LATAM Markets</label><br><br>
+            <button class="btn-card" onclick="window.open('../assets/download/react.pdf')">
+                <div class="card">
+                    <img src="../assets/image/pdf.png">
+                    <label>Basic_Installation_ and_Trouble shooting_guide.pdf</label>
+                </div>
+            </button><br><br>
+            <label class="text">Imbera US - G319 - Installation manual</label>
+        </div>
+{% endblock %}

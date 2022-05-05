@@ -1,0 +1,49 @@
+{% extends './../main-layout.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'assets/css/pdf_upload.css' %}">
+{% endblock %}
+{% block content %}
+        <div class="body">
+            <div class="pdf-card-wrap">
+                {% for row in results %}
+                    <div>
+                        <a class="btn-card" href="/media/{{ row.path }}" target="_blank">
+                            <div class="card">
+                                <img src="{% static 'assets/image/pdf.png' %}">
+                                <label>{{ row.title }}</label>
+                            </div>
+                        </a>
+                        <h4>{{ row.description }}</h4>
+                    </div>
+                {% endfor %}
+            </div>
+            <form>
+                <div class="mb-3 upload-wrap">
+                    <label>PDF Description</label>
+                    <textarea id="pdf-description" placeholder="PDF Description"></textarea>
+                    <div id="pdf-input-wrap">
+                        <div id="pdf-preview-wrap">
+                            <img src="{% static 'assets/image/pdf.png' %}" alt="pdf icon">
+                            <p id="pdf-preview-name">story.pdf</p>
+                        </div>
+                        <div id="import-pdf-wrap">
+                            <img src="{% static 'assets/image/upload_ic.png' %}" alt="upload icon">
+                            <p>*.pdf</p>
+                        </div>
+                        <input id="pdf-input" type="file" accept=".pdf" >
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-warning" id="pdf-upload-btn" file-upload="true">Upload PDF</button>
+                </div>
+            </form>
+        </div>
+{% endblock %}
+{% block script %}
+<script>
+var csrf_token = "{{ csrf_token }}";
+const page_name = '{{ page_name }}';
+</script>
+<script src="{% static 'assets/js/pdf_upload.js' %}"></script>
+{% endblock %}

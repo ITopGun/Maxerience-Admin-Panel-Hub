@@ -1,0 +1,93 @@
+{% extends './../main-layout.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="imgCard">
+            <br>
+            <br>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                  <div id="table" class="table-editable">
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                      <thead>
+                        <tr>
+                          <th class="text-center">ID</th>
+                          <th class="text-center">Description</th>
+                          <th class="text-center" colspan="2">Owner</th>
+                          <th class="text-center" colspan="2">Status</th>
+                          <th class="text-center">Notes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for row in result %}
+                            <tr>
+                                <td class="pt-3-half" contenteditable="false" align="left">
+                                    {% if row.bold == 1 %}
+                                        <strong>{{ row.id }}</strong>
+                                    {% else %}
+                                        {{ row.id }}
+                                    {% endif %}
+                                </td>
+                                <td class="pt-3-half" contenteditable="false" align="left">
+                                    {% if row.bold == 1 %}
+                                        <strong>{{ row.description | safe }}</strong>
+                                    {% else %}
+                                        {{ row.description | safe }}
+                                    {% endif %}
+                                </td>
+                                <td class="pt-3-half" contenteditable="false" style="background-color: {{ row.ownerColor }};" id="owner{{ row.index }}"></td>
+                                <td class="pt-3-half dropdown" contenteditable="false">
+                                    {% if user.is_staff %}
+                                        <select  onchange="onOwnerChange(this, '{{ row.index }}')" value="{{ owner.value }}">
+                                            {% for owner in owners %}
+                                                <option value="{{owner.value}}" {% if owner.value == row.ownerInit %}selected{% endif %}>
+                                                    {{ owner.text }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    {% else %}
+                                        {% for owner in owners %}
+                                            {% if owner.value == row.ownerInit %}
+                                                {{ owner.text }}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </td>
+                                <td class="pt-3-half" contenteditable="false" align="center">
+                                    <div class="circle" id="status{{ row.index }}" style="background-color: {{ row.statusColor }}"></div>
+                                </td>
+                                <td class="pt-3-half dropdown" contenteditable="false">
+                                    {% if user.is_staff %}
+                                        <select  onchange="onStatusChange(this, '{{ row.index }}')" value="{{ status.value }}">
+                                            {% for status in statuses %}
+                                                <option value="{{ status.value }}" {% if status.value == row.statusInit %}selected{% endif %}>{{ status.text }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% else %}
+                                        {% for status in statuses %}
+                                            {% if status.value == row.statusInit %}
+                                                {{ status.text }}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </td>
+                                {{ row.notes | safe }}
+                            </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <br>
+                    {% if user.is_staff %}
+                        <button type="button" class="btn btn-warning" style="width: 200px;" id="save-page-button">Save Page</button><br><br>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+        </div>
+{% endblock %}
+
+{% block pagedetail %}
+var csrf_token = "{{ csrf_token }}";
+var page_name = 'mobileWebApps'
+{% endblock %}

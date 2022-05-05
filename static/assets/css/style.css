@@ -1,0 +1,268 @@
+:root{
+    --header-btn-color: #F89824; 
+    --grey-color: gainsboro;
+}
+
+body{
+    font-family:'Times New Roman', Times, serif;
+}
+
+.header{
+    height: 105px;
+    box-shadow: 0 4px 90px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgb(0 0 0 / 20%);
+}
+
+.logo{
+    margin-top: 5px;
+    margin-left: 15px;
+    width: 140px;
+    height: 90px;
+}
+
+.btn-warning{
+    background-color: var(--header-btn-color);
+    border-radius: 10px;
+}
+
+.btn-box{
+    text-align: center;
+}
+
+.larger{
+    margin-top: 80px;
+    width: 30%;
+    height: 80px;
+    font-size: 2em;
+    white-space: normal;
+}
+
+.cardbody{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.newrow{
+    flex: 25%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.headerbtn{
+    background-color: var(--header-btn-color);
+    width: 85%;
+    height: 85px;
+    font-size: 1.5em;
+}
+
+.newcard-header{
+    border-bottom: solid 1px var(--grey-color);
+}
+
+.btn-secondary{
+    padding: 1rem .75rem;
+    width: 80%;
+    font-size: 1.2em;
+}
+
+.card-body{
+    border-left: solid 1px var(--grey-color);
+}
+
+.top-box{
+    margin-top: 50px;
+    border-bottom: solid 1px var(--grey-color);
+}
+
+.top-box .btn{
+    min-width: 150px;
+    margin-left: 30px;
+}
+
+.imgCard{
+    text-align: center;
+}
+
+.PLC_topimg{
+    width: 95%;
+    margin-top: 10px;
+}
+
+.PLC_row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.PLC_row > img{
+    flex: 30%;
+}
+
+.PLC_row > img:nth-child(3){
+    height: 120px;
+}
+
+.MC_imgCard{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.MC_row{
+    flex: 50%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.MC_row > img{
+    width: 90%;
+}
+
+.MC_row  .MC_detailTable, .MC_row .detailLabel{
+    width: 90%;
+}
+
+.CO_imgCard{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.CO_imgCard div{
+    flex: 50%;
+}
+
+.S_imgCard{
+    width: 95%;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.S_imgCard div{
+    text-align: center;
+}
+
+thead{
+    background-color: coral;
+    color: white;
+}
+
+.actived{
+    background-color: chocolate!important; 
+}
+
+select{
+    border: 0;
+    background-color: transparent;
+    appearance: none;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px!important;
+    border: 1px!important;
+    background-color: grey;
+}
+
+.project_imgCard{
+    width: 100%;
+    text-align: center;
+}
+
+.project_imgCard table{
+    margin-left: 20px;
+}
+
+.project_imgCard table{
+    min-width: 600px;
+}
+
+.model_card{
+    width: 95%;
+    margin-left: 20px;
+}
+
+.btn-card{
+    width: 120px;
+    margin-top: 20px;
+    margin-left: 30px; 
+}
+
+.btn-card div img{
+    width: 60px;
+}
+
+.text{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.notity{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.notity label{
+    text-align: left;
+
+}
+
+@media screen and (max-width: 500px) {
+    .newrow{
+        flex: 100%;
+    }
+    .PLC_row > img{
+        flex: 95%;
+        height: 350px;
+    }
+    .PLC_row > img:nth-child(3){
+        height: 50px;
+    }
+
+    .MC_row{
+        flex: 100%;
+        text-align: center;
+    }
+
+    .MC_row  .MC_detailTable, .MC_row .detailLabel{
+        margin-left: 25px;
+    }
+
+    .CO_imgCard div img{
+        width: 90%;
+    }
+
+    .CO_imgCard div{
+        flex: 100%;
+    }
+
+    .S_imgCard div img{
+        width: 95%;
+        margin-left: 20px;
+    }
+
+    .High_conbox, .Detail_conbox{
+        overflow: auto;
+    }
+
+    .project_imgCard{
+        overflow: auto;
+    }
+
+    .model_card{
+        overflow: auto;
+    }
+
+    .card-body{
+        overflow: auto;
+        margin-left: 10px;
+    }
+
+    .larger{
+        width: 75%;
+    }
+}

@@ -1,0 +1,5 @@
+django
+gunicorn
+Pillow
+whitenoise
+django_heroku

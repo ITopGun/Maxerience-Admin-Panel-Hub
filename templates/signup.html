@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/login/vali/css/main.css' %}" />
+    <link rel="icon" href="{% static 'assets/image/icon.png' %}">
+    <!-- Font-icon css-->
+    <title>Sign Up</title>
+</head>
+<body>      
+    <section class="material-half-bg" >
+      <div class="cover" style="background-color:#f89823!important"></div>
+    </section>
+     
+    <section class="login-content">
+      <div class="logo">    
+      </div>
+      <div class="login-box" style="min-height:480px!important">
+        <form method="post" action="./" id="ConnectionWiseForm" class="login-form">
+            <h3 class="login-head">
+            <a href='/select-customer'><img src="{% static 'assets/image/logo.png' %}" alt="" height="80vh" width="180px" /></a></h3>
+            <div class="form-group">
+                <label class="control-label">USERNAME</label>
+                <input name="email" type="email" id="email" class="form-control" placeholder="example@user.com" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">PASSWORD</label>
+                <input name="password" type="password" id="password" class="form-control" placeholder="Enter Password" />
+            </div> 
+            <div class="form-group">
+                <label class="control-label">CONFIRM</label>
+                <input name="cpassword" type="password" id="cpassword" class="form-control" placeholder="Confirm Password" />
+            </div> 
+            <div class="form-group btn-container">
+                <input type="button" name="btnLogin" value="Create Account" id="signup-btn" class="btn btn-primary btn-block" style="background-color:#f89823!important;border-color:#f89823!important" /> 
+          </div>
+        </form>
+      </div>  
+    </div>
+    </section>
+    <script>
+      var csrf_token = "{{ csrf_token }}";
+    </script>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/login/vali/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/tata.js' %}"></script>
+    <script src="{% static 'assets/js/auth.js' %}"></script>
+  </body>
+</html>
