@@ -52,6 +52,7 @@ urlpatterns = [
 
     # Technical Documentation Pages
     path('solution/', solution.TDSolutionView.as_view(), name='timeline_high'),
+    path('solution/<int:id>', solution.TDSolutionView.as_view(), name='timeline_high'),
     path('installation-manual/', installationManual.TDInstallationManualView.as_view(),
          name='timeline_detailed'),
     path('technical-cooler-onboarding/',

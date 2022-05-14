@@ -187,7 +187,8 @@ select{
 }
 
 .btn-card{
-    width: 120px;
+    /*width: 120px;*/
+    display: inline-block;
     margin-top: 20px;
     margin-left: 30px; 
 }
@@ -265,4 +266,20 @@ select{
     .larger{
         width: 75%;
     }
+}
+
+.newcard-header>.btn{
+    background-color: #f89824;
+    cursor: default;
+    border: none;
+    box-shadow: none;
+}
+
+.newcard-header>.btn:active, .newcard-header>.btn:focus{
+    box-shadow: none;
+    cursor: default;
+}
+
+.pdf-del-btn{
+    margin-left: 20px;
 }

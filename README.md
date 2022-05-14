@@ -1,5 +1,4 @@
-# A love for food
-
+# Maxerience
 version @1.0.0
 
 ## Installation
@@ -73,4 +72,4 @@ Uploaded images are stored in /media/images/ directory.
 ```
 
 ## Demo
-[DEMO](http://143.198.187.223/)
+[DEMO](https://maxerience.herokuapp.com/)

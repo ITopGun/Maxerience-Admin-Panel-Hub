@@ -417,3 +417,8 @@ a .card-title:hover{
     text-decoration: underline;
     color: #3c39f5;
 }
+
+.newcard-header>.btn{
+    background-color: #f89824;
+    cursor: pointer;
+}

@@ -14,7 +14,8 @@
                                 <label>{{ row.title }}</label>
                             </div>
                         </a>
-                        <h4>{{ row.description }}</h4>
+                        <button class="btn btn-danger pdf-del-btn" data-id="{{ row.id }}">Delete</button>
+                        <h4 style="margin-left:30px;">{{ row.description }}</h4>
                     </div>
                 {% endfor %}
             </div>

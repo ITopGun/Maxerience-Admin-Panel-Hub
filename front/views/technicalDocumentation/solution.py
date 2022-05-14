@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from front.models import Documents
 import os.path
 from PIL import Image
+from django.http import QueryDict
 
 
 class TDSolutionView(View):
@@ -18,7 +19,8 @@ class TDSolutionView(View):
             results.append({
                 "title": document.title,
                 "description": document.description,
-                "path": document.file
+                "path": document.file,
+                "id": document.id
             })
         if request.user.is_authenticated:
             return render(request, self.template_name, {"results": results, "page_name": page_name})
@@ -30,6 +32,7 @@ class TDSolutionView(View):
             current_user = request.user
             post_value = request.POST
             dir = ''
+            document = {}
 
             if request.FILES and request.FILES['file']:
                 document = Documents.objects.create(
@@ -43,4 +46,18 @@ class TDSolutionView(View):
         except Exception as e:
             return JsonResponse({'status': 400, 'message': str(e)})
 
-        return JsonResponse({'status': 200, 'title': request.FILES['file'].name, 'description': post_value['description'], 'dir': dir})
+        return JsonResponse({'status': 200, 'title': request.FILES['file'].name, 'description': post_value['description'], 'dir': dir, 'id': document.id})
+
+    def delete(self, request, id):
+        try:
+            current_user = request.user
+            del_value = QueryDict(request.body)
+            del_id = del_value.get('id')
+            document = Documents.objects.filter(id=id)
+            document.delete()
+
+        except Exception as e:
+            return JsonResponse({'status': 400, 'message': str(e)})
+
+        return JsonResponse({'status': 200, 'message': 'Deleted successfully'})
+        
