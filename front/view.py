@@ -18,7 +18,7 @@ class IndexView(View):
 
     def get(self, request):
         if request.user.is_authenticated:
-            return render(request, self.template_name, {})
+            return render(request, self.template_name, {'current_user': request.user})
         else:
             return redirect('/select-customer/')
 

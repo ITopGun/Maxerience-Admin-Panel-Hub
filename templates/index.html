@@ -17,6 +17,9 @@
     <div class="newcontainer">
         <div class="header">
             <a href="/select-customer"><img class="logo" src="{% static 'assets/image/logo.png' %}"></a>
+            {% if current_user.is_superuser %}
+                <a href="/user-management" class="btn btn-warning" style="float: right; margin-top: 30px; margin-right: 20px;">User Management</a>
+            {% endif %}
         </div>
         <div class="banner">
 

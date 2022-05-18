@@ -1,0 +1,63 @@
+{% extends './main-layout.html' %}
+{% load static %}
+{% block topbuttons %}
+{% endblock %}
+{% block content %}
+        <div class="imgCard">
+            <br><br><br>
+            <div class="card">
+                <div class="card-body">
+                  <div id="table" class="table-editable">
+                    <span class="table-add float-right mb-3 mr-2"
+                      ><a href="#!" class="text-success"
+                        ><i class="fas fa-plus fa-2x" aria-hidden="false"></i></a
+                    ></span>
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                      <thead>
+                        <tr>
+                          <th class="text-center">#</th>
+                          <th class="text-center">email</th>
+                          <th class="text-center">Active</th>
+                          <th class="text-center">Remove</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for user in users %}
+                            <tr user-id="{{ user.id }}">
+                                <td class="pt-3-half" contenteditable="false" align="left">
+                                    {{ forloop.counter }}
+                                </td>
+                                <td class="pt-3-half" contenteditable="false" align="left">
+                                    {{ user.email }}
+                                </td>
+                                <td class="pt-3-half dropdown" contenteditable="false" align="left">
+                                    <select  onchange="activeChange(this, '{{ user.id }}')" value="{{ user.is_active }}">
+                                        <option value="1" {% if user.is_active == 1 %}selected{% endif %}>
+                                            Active
+                                        </option>
+                                        <option value="0" {% if user.is_active != 1 %}selected{% endif %}>
+                                            Pending
+                                        </option>
+                                    </select>
+                                </td>
+                                <td class="pt-3-half" contenteditable="false" align="left">
+                                    <button class="btn btn-danger" onclick="removeUser(this, '{{ user.id }}')">Remove</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+        </div>
+{% endblock %}
+
+{% block pagedetail %}
+var csrf_token = "{{ csrf_token }}";
+var page_name = 'user-management';
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'assets/js/user-management.js' %}"></script>
+{% endblock %}

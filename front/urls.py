@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views.auth import login, signup
+from .views.auth import login, signup, userManagement
 from .view import IndexView, PFProjectLifecycleView, PFSkuCreationView, PFCoolerOnboardingView, PFSupportView, PTTimelineHigh, PTTimelineDetailed, SelectCustomerView
 from .views.checklists import project, masterDataModel, mobileWebApps, paymentIntegration, installationConfig, materialList, coolerOnboarding, coolerHealthCheck, dashboards
 from .views.technicalDocumentation import solution, installationManual, tdcoolerOnboarding, transaction, operational, tdcoolerHealthCheck
@@ -11,6 +11,10 @@ urlpatterns = [
     path('login/', login.LoginView.as_view(), name='user_login'),
     path('logout/', login.logout, name='user_logout'),
     path('signup/', signup.SignUpView.as_view(), name='user_signup'),
+    path('user-management/', userManagement.UserManagementView.as_view(),
+         name='user_management'),
+    path('user-management/<int:id>', userManagement.UserManagementView.as_view(),
+         name='user_management'),
     path('', IndexView.as_view(), name='index'),
     path('select-customer/', SelectCustomerView.as_view(), name="select_customer"),
 
