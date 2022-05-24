@@ -7,12 +7,14 @@ from front.models import Documents
 import os.path
 from PIL import Image
 from django.http import QueryDict
+import json
 
 
 class UserManagementView(View):
     template_name = 'user-management.html'
 
     def get(self, request):
+        page_name = 'user-management'
         users = User.objects.all()
         if request.user.is_authenticated:
             return render(request, self.template_name, {"users": users})
@@ -25,8 +27,10 @@ class UserManagementView(View):
             post_value = request.POST
             put_value = QueryDict(request.body)
             is_active = put_value.get('is_active')
+            is_staff = put_value.get('is_staff')
             user = User.objects.filter(id=id)[0]
             user.is_active = is_active
+            user.is_staff = is_staff
             user.save()
 
         except Exception as e:
@@ -39,10 +43,12 @@ class UserManagementView(View):
             current_user = request.user
             del_value = QueryDict(request.body)
             del_id = del_value.get('id')
-            user = User.objects.filter(id=id)[0]
+            del_id = json.loads(del_id)
+            print(del_id)
+            user = User.objects.filter(id__in=del_id)
             user.delete()
 
         except Exception as e:
             return JsonResponse({'status': 400, 'message': str(e)})
 
-        return JsonResponse({'status': 200, 'message': f'{user.username} deleted successfully'})
+        return JsonResponse({'status': 200, 'message': f'Users deleted successfully'})

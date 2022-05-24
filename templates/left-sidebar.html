@@ -1,0 +1,150 @@
+{% load static %}
+<!-- ========== Left Sidebar Start ========== -->
+<div class="left-side-menu">
+
+    <div class="h-100" data-simplebar>
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+
+            <ul id="side-menu">
+                {% if user.is_staff %}
+                    <li>
+                        <a href="#sidebarDashboards" data-toggle="collapse">
+                            <i data-feather="airplay"></i>
+                            <span> Dashboards </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarDashboards">
+                            <ul class="nav-second-level">
+                                <li>
+                                    <a href="/user-management">Users</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+                
+                <li>
+                    <a href="#sidebarProcessFramework" data-toggle="collapse">
+                        <i data-feather="briefcase"></i>
+                        <span> Process Framework </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarProcessFramework">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="/project-lifecycle">Project Lifecycle</a>
+                            </li>
+                            <li>
+                                <a href="/sku-creation">SKU Creation</a>
+                            </li>
+                            <li>
+                                <a href="/cooler-onboarding">Cooler Onboarding</a>
+                            </li>
+                            <li>
+                                <a href="/support">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarProcessTimeline" data-toggle="collapse">
+                        <i data-feather="calendar"></i>
+                        <span> Process Timeline </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarProcessTimeline">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="/timeline-high">Timeline(High)</a>
+                            </li>
+                            <li>
+                                <a href="/timeline-detailed">Timeline(Detailed)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarChecklists" data-toggle="collapse">
+                        <i data-feather="clipboard"></i>
+                        <span> Checklists </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarChecklists">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="/project">Project</a>
+                            </li>
+                            <li>
+                                <a href="/master-data-model">Master Data & Model</a>
+                            </li>
+                            <li>
+                                <a href="/mobile-web-apps">Mobile & Web Apps</a>
+                            </li>
+                            <li>
+                                <a href="/payment-integration">Payment Integration</a>
+                            </li>
+                            <li>
+                                <a href="/install-config">Installation & Config</a>
+                            </li>
+                            <li>
+                                <a href="/material-list">Material List</a>
+                            </li>
+                            <li>
+                                <a href="/checklist-cooler-onboarding">Cooler Onboarding</a>
+                            </li>
+                            <li>
+                                <a href="/cooler-health-check">Cooler Health Check</a>
+                            </li>
+                            <li>
+                                <a href="/dashboards">Dashboards</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarTechnicalDocumentation" data-toggle="collapse">
+                        <i data-feather="book"></i>
+                        <span> Technical Documentation </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTechnicalDocumentation">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="/solution">Solution</a>
+                            </li>
+                            <li>
+                                <a href="/installation-manual">Installation Manual</a>
+                            </li>
+                            <li>
+                                <a href="/technical-cooler-onboarding">Cooler Onboarding</a>
+                            </li>
+                            <li>
+                                <a href="/transaction">Transaction</a>
+                            </li>
+                            <li>
+                                <a href="/operational">Operational</a>
+                            </li>
+                            <li>
+                                <a href="/technical-cooler-health-check">Cooler Health Check</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- Sidebar -left -->
+
+</div>
+<!-- Left Sidebar End -->

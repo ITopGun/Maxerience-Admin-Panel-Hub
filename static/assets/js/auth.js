@@ -30,7 +30,7 @@ $("#signup-btn").on('click', function(e){
             async: false,
             success: function (result) {
                 if (result.status === 200) {
-                    window.location = '/'
+                    tata.success('Success', result.message)
                 } else {
                     tata.error('Error', result.message)
                 }

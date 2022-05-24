@@ -30,14 +30,14 @@ class SignUpView(View):
                 return JsonResponse({'status': 404, 'message': 'Email already exists'})
 
             user = User.objects.create_user(
-                username=post_value['email'], email=post_value['email'], password=post_value['password'], is_active=1)
+                username=post_value['email'], email=post_value['email'], password=post_value['password'], is_active=0)
 
             user.save()
 
-            auth.login(request, user)
+            # auth.login(request, user)
             request.session.set_expiry(0)
 
         except Exception as e:
             return JsonResponse({'status': 400, 'message': str(e)})
 
-        return JsonResponse({'status': 200, 'message': 'success'})
+        return JsonResponse({'status': 200, 'message': 'You are registered successfully.'})

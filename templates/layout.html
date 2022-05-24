@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Process</title>
+
+    <link rel="icon" href="{% static 'assets/image/icon.png' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <div class="box">
+        <div class="top-box">
+            <button type="button" onclick="window.history.back()" class="btn btn-warning">Back</button>
+            <button type="button" onclick="location.href = '/'" class="btn btn-warning">Home</button>
+            <button type="button" onclick="location.href = '/logout'" class="btn btn-warning">Logout</button>
+            {% block topbuttons %}{% endblock %}
+        </div>
+        {% block content %}{% endblock %}
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/js/tata.js' %}"></script>
+        <script>
+            function onOwnerChange(self, k){
+                switch(self.value){
+                    case '1': document.getElementById("owner"+k).style.backgroundColor = "#FFC000"; break;
+                    case '2': document.getElementById("owner"+k).style.backgroundColor = "red"; break;
+                    case '3': document.getElementById("owner"+k).style.backgroundColor = "#FCE4D6"; break;
+                    case '4': document.getElementById("owner"+k).style.backgroundColor = "#FFF2CC"; break;
+                    case '5': document.getElementById("owner"+k).style.backgroundColor = "#E2EFDA"; break;
+                    case '6': document.getElementById("owner"+k).style.backgroundColor = "#548235"; break;
+                    case '7': document.getElementById("owner"+k).style.backgroundColor = "#0070C0"; break;
+                    case '8': document.getElementById("owner"+k).style.backgroundColor = "#FFFF00"; break;
+                    case '9': document.getElementById("owner"+k).style.backgroundColor = "#7030A0"; break;
+                    case '0': document.getElementById("owner"+k).style.backgroundColor = "#C00000"; break;
+                    case '10': document.getElementById("owner"+k).style.backgroundColor = "#FFFFFF"; break;
+                }
+            }
+
+            function onStatusChange(self, k){
+                switch(self.value){
+                    case '0': document.getElementById("status"+k).style.backgroundColor = "grey"; break;
+                    case '1': document.getElementById("status"+k).style.backgroundColor = "#EAC282"; break;
+                    case '2': document.getElementById("status"+k).style.backgroundColor = "#D65532"; break;
+                    case '3': document.getElementById("status"+k).style.backgroundColor = "green"; break;
+                }
+            }
+            {% block pagedetail %} {% endblock %}
+            $("#save-page-button").on('click', function(){
+                var owners = [], status = [];
+                var url = '/project/';
+                var trs = document.querySelectorAll('table>tbody>tr')
+                trs.forEach(tr => {
+                    var selects = tr.querySelectorAll('select')
+                    owners.push(selects[0].value)
+                    status.push(selects[1].value)
+                })
+                jQuery.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {'owners': JSON.stringify(owners), 'status': JSON.stringify(status), 'page_name': page_name, csrfmiddlewaretoken: csrf_token},
+                    dataType: "jSON",
+                    success: function (result) {
+                        if (result.status === 200) {
+                            tata.success('Success', 'Page saved successfully.')
+                        } else {
+                            tata.error('Error', result.message)
+                        }
+                    }
+                });
+            })
+        </script>
+        {% block script %}{% endblock %}
+    </div>
+</body>
+</html>

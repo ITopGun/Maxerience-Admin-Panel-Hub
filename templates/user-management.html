@@ -1,6 +1,6 @@
 {% extends './main-layout.html' %}
 {% load static %}
-{% block topbuttons %}
+{% block css %}
 {% endblock %}
 {% block content %}
         <div class="imgCard">
@@ -8,42 +8,66 @@
             <div class="card">
                 <div class="card-body">
                   <div id="table" class="table-editable">
-                    <span class="table-add float-right mb-3 mr-2"
-                      ><a href="#!" class="text-success"
-                        ><i class="fas fa-plus fa-2x" aria-hidden="false"></i></a
-                    ></span>
-                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <div class="d-flex justify-content-start mb-2">
+                      <button id="delete-row" class="btn btn-danger btn-sm" disabled><i class="mdi mdi-close mr-1"></i>Delete</button>
+                    </div>
+                    <table class="user-management table table-bordered table-responsive-md table-striped text-center">
                       <thead>
                         <tr>
-                          <th class="text-center">#</th>
-                          <th class="text-center">email</th>
-                          <th class="text-center">Active</th>
-                          <th class="text-center">Remove</th>
+                          <th class="text-center" width="80">
+                            <div class="checkbox checkbox-danger">
+                              <input id="all-check" type="checkbox">
+                              <label for="all-check">
+                                  &nbsp;
+                              </label>
+                            </div>
+                          </th>
+                          <th class="text-center">Email</th>
+                          <th class="text-center" width="120">Status</th>
+                          <th class="text-center" width="170">Role</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {% for user in users %}
-                            <tr user-id="{{ user.id }}">
-                                <td class="pt-3-half" contenteditable="false" align="left">
-                                    {{ forloop.counter }}
+                        {% for userRow in users %}
+                          {% if userRow.id != user.id %}
+                            <tr user-id="{{ userRow.id }}">
+                                <td class="pt-3-half">
+                                  <div class="checkbox checkbox-danger">
+                                    <input id="checkbox{{ forloop.counter }}" type="checkbox">
+                                    <label for="checkbox{{ forloop.counter }}">
+                                        &nbsp;
+                                    </label>
+                                  </div>
                                 </td>
                                 <td class="pt-3-half" contenteditable="false" align="left">
-                                    {{ user.email }}
+                                    {{ userRow.email }}
                                 </td>
-                                <td class="pt-3-half dropdown" contenteditable="false" align="left">
-                                    <select  onchange="activeChange(this, '{{ user.id }}')" value="{{ user.is_active }}">
-                                        <option value="1" {% if user.is_active == 1 %}selected{% endif %}>
-                                            Active
-                                        </option>
-                                        <option value="0" {% if user.is_active != 1 %}selected{% endif %}>
-                                            Pending
-                                        </option>
-                                    </select>
+                                <td class="pt-3-half" align="left">
+                                  <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input status" id="statusSwitch{{ forloop.counter }}" {% if userRow.is_active %}checked{% endif %}>
+                                    <label class="custom-control-label" for="statusSwitch{{ forloop.counter }}">
+                                      {% if userRow.is_active %}
+                                        Active
+                                      {% else %}
+                                        Inactive
+                                      {% endif %}
+                                    </label>
+                                  </div>
                                 </td>
-                                <td class="pt-3-half" contenteditable="false" align="left">
-                                    <button class="btn btn-danger" onclick="removeUser(this, '{{ user.id }}')">Remove</button>
+                                <td class="pt-3-half" align="left">
+                                  <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input role" id="roleSwitch{{ forloop.counter }}" {% if userRow.is_staff %}checked{% endif %}>
+                                    <label class="custom-control-label" for="roleSwitch{{ forloop.counter }}">
+                                      {% if userRow.is_staff %}
+                                        Administrator
+                                      {% else %}
+                                        User
+                                      {% endif %}
+                                    </label>
+                                  </div>
                                 </td>
                             </tr>
+                          {% endif %}
                         {% endfor %}
                       </tbody>
                     </table>

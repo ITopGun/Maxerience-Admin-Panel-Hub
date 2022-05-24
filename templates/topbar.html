@@ -1,0 +1,61 @@
+{% load static %}
+<!-- Topbar Start -->
+<div class="navbar-custom">
+    <div class="container-fluid">
+        <ul class="list-unstyled topnav-menu float-right mb-0">
+    
+            <li class="dropdown notification-list">
+                <a href="/logout" class="nav-link right-bar-toggle waves-effect waves-light">
+                    <i class="fe-log-out"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+    
+        </ul>
+    
+        <!-- LOGO -->
+        <div class="logo-box">
+            <a href="/" class="logo logo-dark">
+                <span class="logo-sm">
+                    <img src="{% static 'assets/image/logo-sm.png' %}"alt="" height="50">
+                    <!-- <span class="logo-lg-text-light">UBold</span> -->
+                </span>
+                <span class="logo-lg">
+                    <img src="{% static 'assets/image/logo.png' %}"alt="" height="50">
+                    <!-- <span class="logo-lg-text-light">U</span> -->
+                </span>
+            </a>
+    
+            <a href="/" class="logo logo-light">
+                <span class="logo-sm">
+                    <img src="{% static 'assets/image/logo-sm.png' %}"alt="" height="50">
+                </span>
+                <span class="logo-lg">
+                    <img src="{% static 'assets/image/logo.png' %}"alt="" height="50">
+                </span>
+            </a>
+        </div>
+    
+        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+            <li>
+                <button class="button-menu-mobile waves-effect waves-light">
+                    <i class="fe-menu"></i>
+                </button>
+            </li>
+
+            <li>
+                <!-- Mobile menu toggle (Horizontal Layout)-->
+                <a class="navbar-toggle nav-link" data-toggle="collapse" data-target="#topnav-menu-content">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <!-- End mobile menu toggle-->
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- end Topbar -->
