@@ -30,9 +30,11 @@ $("#signup-btn").on('click', function(e){
             async: false,
             success: function (result) {
                 if (result.status === 200) {
-                    tata.success('Success', result.message)
+                    $("#signup-alert").fadeIn();
+                    $("#signup-alert").text(result.message);
                 } else {
-                    tata.error('Error', result.message)
+                    $("#signup-alert").fadeIn();
+                    $("#signup-alert").text(result.message);
                 }
             }
         });

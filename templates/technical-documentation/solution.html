@@ -14,31 +14,35 @@
                                 <label>{{ row.title }}</label>
                             </div>
                         </a>
-                        <button class="btn btn-danger pdf-del-btn" data-id="{{ row.id }}">Delete</button>
+                        {% if user.is_staff %}
+                            <button class="btn btn-danger pdf-del-btn" data-id="{{ row.id }}">Delete</button>
+                        {% endif %}
                         <h4 style="margin-left:30px;">{{ row.description }}</h4>
                     </div>
                 {% endfor %}
             </div>
-            <form>
-                <div class="mb-3 upload-wrap">
-                    <label>PDF Description</label>
-                    <textarea id="pdf-description" placeholder="PDF Description"></textarea>
-                    <div id="pdf-input-wrap">
-                        <div id="pdf-preview-wrap">
-                            <img src="{% static 'assets/image/pdf.png' %}" alt="pdf icon">
-                            <p id="pdf-preview-name">story.pdf</p>
+            {% if user.is_staff %}
+                <form>
+                    <div class="mb-3 upload-wrap">
+                        <label>PDF Description</label>
+                        <textarea id="pdf-description" placeholder="PDF Description"></textarea>
+                        <div id="pdf-input-wrap">
+                            <div id="pdf-preview-wrap">
+                                <img src="{% static 'assets/image/pdf.png' %}" alt="pdf icon">
+                                <p id="pdf-preview-name">story.pdf</p>
+                            </div>
+                            <div id="import-pdf-wrap">
+                                <img src="{% static 'assets/image/upload_ic.png' %}" alt="upload icon">
+                                <p>*.pdf</p>
+                            </div>
+                            <input id="pdf-input" type="file" accept=".pdf" >
                         </div>
-                        <div id="import-pdf-wrap">
-                            <img src="{% static 'assets/image/upload_ic.png' %}" alt="upload icon">
-                            <p>*.pdf</p>
-                        </div>
-                        <input id="pdf-input" type="file" accept=".pdf" >
                     </div>
-                </div>
-                <div class="mb-3">
-                    <button class="btn btn-warning" id="pdf-upload-btn" file-upload="true">Upload PDF</button>
-                </div>
-            </form>
+                    <div class="mb-3">
+                        <button class="btn btn-warning" id="pdf-upload-btn" file-upload="true">Upload PDF</button>
+                    </div>
+                </form>
+            {% endif %}
         </div>
 {% endblock %}
 {% block script %}

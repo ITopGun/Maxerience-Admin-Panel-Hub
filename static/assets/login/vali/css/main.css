@@ -15236,3 +15236,12 @@ be a descendant of the grid when it is being dragged.
 .user .user-settings label {
   color: #666;
 }
+
+#signup-alert{
+  display: none;
+  margin: 10px 0;
+  background: #ef7c7c6e;
+  padding: 10px;
+  border-radius: 5px;
+  border: solid 1px #c39696;
+}
