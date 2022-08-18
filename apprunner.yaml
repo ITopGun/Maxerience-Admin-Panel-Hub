@@ -1,15 +1,16 @@
 version: 1.0
 runtime: python3
 run:
-  runtime-version: 3.7
-run:
   network:
     port: 8080
 build:
   commands:
+    pre-build:
+      - pip freeze > requirements.txt 
     build:
-      - pip3 install -r requirements.txt
-command: python manage.py collectstatic
-command: python manage.py migrate
-command: python manage.py createsuperuser
-command: python manage.py runserver
+      - pip install -r requirements.txt
+    post-build:
+      - python manage.py collectstatic
+      - python manage.py migrate
+      - python manage.py createsuperuser
+      - python manage.py runserver
