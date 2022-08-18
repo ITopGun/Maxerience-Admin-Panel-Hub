@@ -1,0 +1,15 @@
+version: 1.0
+runtime: python3
+run:
+  runtime-version: 3.7
+run:
+  network:
+    port: 8080
+build:
+  commands:
+    build:
+      - pip3 install -r requirements.txt
+command: python manage.py collectstatic
+command: python manage.py migrate
+command: python manage.py createsuperuser
+command: python manage.py runserver
