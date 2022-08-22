@@ -1,16 +1,18 @@
 version: 1.0
 runtime: python3
-run:
-  network:
-    port: 80
 build:
   commands:
     pre-build:
-      - pip freeze > requirements.txt 
+      - pip install psycopg2-binary
     build:
       - pip install -r requirements.txt
     post-build:
       - python manage.py collectstatic
       - python manage.py migrate
       - python manage.py createsuperuser
-      - python manage.py runserver
+run:
+  runtime-version: 3.8.13
+  network:
+    port: 8000
+    env: MY_APP_PORT
+  command: python manage.py runserver
